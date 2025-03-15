@@ -8,6 +8,16 @@ let clickAudio = document.querySelector('.click');
 let gameOverAudio = document.querySelector('.gameOver');
 let playBtn = document.querySelector('#play-btn');
 
+//detecting the device for relevant starter instruction
+function starterText() {
+    if("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+        starter.innerText = 'Tap anywhere on the screen to start the game';
+    }
+    else {
+        starter.innerText = 'Press any key to start the game';
+    }
+}
+
 playBtn.addEventListener('click', () => {
     let curtain = document.querySelector('#curtain');
     curtain.style.transform = "translateY(-100%)";
@@ -15,6 +25,7 @@ playBtn.addEventListener('click', () => {
         curtain.classList.add("hide");
     },1000);
     console.log('button was clicked');
+    starterText();
 });
 
 //variables
@@ -29,6 +40,7 @@ for(let box of boxes) {
 
 
 document.addEventListener('keydown', startGame);
+document.addEventListener('touchstart', startGame); //for mobile devices
 
 function startGame() {
     for(let box of boxes) {
@@ -63,11 +75,13 @@ function checkAnswer(index) {
         setTimeout(() => {
             document.body.style.backgroundColor = 'white';
         },1500)
-        levels.innerText = `GAME OVER! Your total score was ${level - 1}\nPress any key to restart the game.`;
+        levels.innerText = `GAME OVER! Your total score was ${level - 1}`;
         gameStarted = false;
         level = 0;
         userClicksArr = [];
         gameSequenceArr = [];
+        starterText();
+        
     }
 }
 
