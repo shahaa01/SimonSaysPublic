@@ -6,7 +6,7 @@ Simon Says is a classic memory-based game where players must repeat an increasin
 ## Features
 - Fully responsive and interactive UI
 - Dynamic sequence generation for increasing difficulty
-- Smooth animations
+- Smooth animations and sound effects
 - Score tracking and game restart functionality
 - Optimized only for desktop.
 
@@ -19,7 +19,7 @@ Simon Says is a classic memory-based game where players must repeat an increasin
 1. The game starts with a single color flashing.
 2. The player must click the same color to proceed.
 3. Each correct selection adds a new color to the sequence.
-4. The player must remember and replicate the entire sequence in order.
+4. The player must remember and replicate the exact order from previous levels.
 5. The game continues until the player makes an incorrect selection.
 
 ## Installation & Setup
