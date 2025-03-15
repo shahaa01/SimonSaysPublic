@@ -11,7 +11,7 @@ let playBtn = document.querySelector('#play-btn');
 //detecting the device for relevant starter instruction
 function starterText() {
     if("ontouchstart" in window || navigator.maxTouchPoints > 0) {
-        starter.innerText = 'Tap anywhere on the screen to start the game';
+        starter.innerText = '';
     }
     else {
         starter.innerText = 'Press any key to start the game';
@@ -81,6 +81,7 @@ function checkAnswer(index) {
         userClicksArr = [];
         gameSequenceArr = [];
         starterText();
+        
         
     }
 }

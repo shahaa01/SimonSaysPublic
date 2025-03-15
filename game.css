@@ -11,6 +11,43 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+@media (max-width: 768px) {
+    body {
+        background-color: #FCE4EC; 
+    }
+}
+
+/* Dark mode specifically for screens 768px or smaller */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;  /* True dark mode */
+        color: #E0E0E0; /* Light gray text for readability */
+    }
+
+    h1, h3 {
+        color: #FFFFFF; /* Pure white for strong contrast */
+    }
+
+    .container {
+        background-color: #1E1E1E; /* Darker container for depth */
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1); /* Subtle light shadow */
+    }
+
+    .box {
+        border-color: #E0E0E0; /* Light borders to stand out */
+    }
+
+    #score-box {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    #curtain {
+        background: rgba(0, 0, 0, 0.95);
+    }
+}
+
+
+
 header {
     margin-bottom: 20px;
 }
