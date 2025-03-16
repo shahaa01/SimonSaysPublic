@@ -29,14 +29,16 @@ for(let box of boxes) {
     box.classList.add('disabled');
 }
 
-
-document.addEventListener('keydown', startGame);
+document.addEventListener('keydown', () => {
+    if(!gameStarted && playBtnClicked == true) {
+        startGame();
+    }
+});
 
 function startGame() {
     for(let box of boxes) {
         box.classList.remove('disabled');
     }
-    if(!gameStarted && playBtnClicked == true) {
         gameStarted = true; //changed the state to started - true
         starter.innerText = '';
         ++level;
@@ -47,7 +49,7 @@ function startGame() {
             flashButton(boxes[randomBtnIndex]);
         },1000)
         gameSequenceArr.push(btn[randomBtnIndex]); 
-    }           
+               
 };
 
 function checkAnswer(index) {
