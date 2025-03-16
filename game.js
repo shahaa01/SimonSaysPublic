@@ -7,8 +7,10 @@ let score = document.querySelector('#score-box');
 let clickAudio = document.querySelector('.click');
 let gameOverAudio = document.querySelector('.gameOver');
 let playBtn = document.querySelector('#play-btn');
+let playBtnClicked = false;
 
 playBtn.addEventListener('click', () => {
+    playBtnClicked = true;
     let curtain = document.querySelector('#curtain');
     curtain.style.transform = "translateY(-100%)";
     setTimeout(() => {
@@ -34,7 +36,7 @@ function startGame() {
     for(let box of boxes) {
         box.classList.remove('disabled');
     }
-    if(!gameStarted) {
+    if(!gameStarted && playBtnClicked) {
         gameStarted = true; //changed the state to started - true
         starter.innerText = '';
         ++level;
