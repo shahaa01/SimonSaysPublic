@@ -36,7 +36,7 @@ function startGame() {
     for(let box of boxes) {
         box.classList.remove('disabled');
     }
-    if(!gameStarted && playBtnClicked) {
+    if(!gameStarted && playBtnClicked == true) {
         gameStarted = true; //changed the state to started - true
         starter.innerText = '';
         ++level;
