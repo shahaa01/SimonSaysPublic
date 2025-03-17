@@ -7,6 +7,7 @@ let score = document.querySelector('#score-box');
 let clickAudio = document.querySelector('.click');
 let gameOverAudio = document.querySelector('.gameOver');
 let playBtn = document.querySelector('#play-btn');
+let playBtnClicked = false;
 
 //detecting the device for relevant starter instruction
 function starterText() {
@@ -19,6 +20,7 @@ function starterText() {
 }
 
 playBtn.addEventListener('click', () => {
+     playBtnClicked = true;
     let curtain = document.querySelector('#curtain');
     curtain.style.transform = "translateY(-100%)";
     setTimeout(() => {
@@ -38,9 +40,18 @@ for(let box of boxes) {
     box.classList.add('disabled');
 }
 
+document.addEventListener('keydown', () => {
+    if(!gameStarted && playBtnClicked) {
+        startGame();
+    }
+});
 
-document.addEventListener('keydown', startGame);
-document.addEventListener('touchstart', startGame); //for mobile devices
+//for mobile devices
+document.addEventListener('touchstart', () => {
+    if(!gameStarted && playBtnClicked) {
+        startGame();
+    }
+}); 
 
 function startGame() {
     for(let box of boxes) {
